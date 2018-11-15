@@ -1,6 +1,9 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
+  resolve: {
+    extensions: ['.js','.vue']
+  },
   module: {
     rules: [
       {
@@ -16,6 +19,14 @@ module.exports = {
           {
             loader: "html-loader",
             options: { minimize: true }
+          }
+        ]
+      },
+      {
+        test: /\.vue$/,
+        use: [
+          {
+            loader: "vue-loader"
           }
         ]
       }
